@@ -1,0 +1,208 @@
+{
+  "spec": {
+    "properties": {
+      "assemblyPhase": {
+        "description": "The installer can set this field to indicate that the application's components\nare still being deployed (\"Pending\") or all are deployed already (\"Succeeded\"). When the\napplication cannot be successfully assembled, the installer can set this field to \"Failed\".'\n",
+        "type": "string"
+      },
+      "componentKinds": {
+        "description": "This array of GroupKinds is used to indicate the types of resources that the\napplication is composed of. As an example an Application that has a service and a deployment\nwould set this field to [{\"group\":\"core\",\"kind\": \"Service\"},{\"group\":\"apps\",\"kind\":\"Deployment\"}]\n",
+        "items": {
+          "description": "The item of the GroupKinds, with a structure like \\\"{\"group\":\"core\",\"kind\": \"Service\"}\\\"",
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "descriptor": {
+        "properties": {
+          "description": {
+            "description": "A short, human readable textual description of the Application.",
+            "type": "string"
+          },
+          "icons": {
+            "description": "A list of icons for an application. Icon information includes the source, size, and mime type.",
+            "items": {
+              "properties": {
+                "size": {
+                  "description": "The size of the icon.",
+                  "type": "string"
+                },
+                "src": {
+                  "description": "The source of the icon.",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The mime type of the icon.",
+                  "type": "string"
+                }
+              },
+              "required": ["src"],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "keywords": {
+            "description": "A list of keywords that identify the application.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "links": {
+            "description": "Links are a list of descriptive URLs intended to be used to surface additional documentation, dashboards, etc.",
+            "items": {
+              "properties": {
+                "description": {
+                  "description": "The description of the link.",
+                  "type": "string"
+                },
+                "url": {
+                  "description": "The url of the link.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "maintainers": {
+            "description": "A list of the maintainers of the Application. Each maintainer has a name, email, and URL. This field is meant for the distributors of the Application to indicate their identity and contact information.",
+            "items": {
+              "properties": {
+                "email": {
+                  "description": "The email of the maintainer.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the maintainer.",
+                  "type": "string"
+                },
+                "url": {
+                  "description": "The url to contact the maintainer.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "notes": {
+            "description": "Notes contain human readable snippets intended as a quick start for the users of the Application. They may be plain text or CommonMark markdown.",
+            "type": "string"
+          },
+          "owners": {
+            "items": {
+              "properties": {
+                "email": {
+                  "description": "The email of the owner.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the owner.",
+                  "type": "string"
+                },
+                "url": {
+                  "description": "The url to contact the owner.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "type": {
+            "description": "The type of the application (e.g. WordPress, MySQL, Cassandra). You can have many applications of different names in the same namespace. They type field is used to indicate that they are all the same type of application.",
+            "type": "string"
+          },
+          "version": {
+            "description": "A version indicator for the application (e.g. 5.7 for MySQL version 5.7).",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "info": {
+        "description": "Info contains human readable key-value pairs for the Application.",
+        "items": {
+          "properties": {
+            "name": {
+              "description": "The name of the information.",
+              "type": "string"
+            },
+            "type": {
+              "description": "The type of the information.",
+              "type": "string"
+            },
+            "value": {
+              "description": "The value of the information.",
+              "type": "string"
+            },
+            "valueFrom": {
+              "description": "The value reference from other resource.",
+              "properties": {
+                "configMapKeyRef": {
+                  "description": "The config map key reference.",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "ingressRef": {
+                  "description": "The ingress reference.",
+                  "properties": {
+                    "host": {
+                      "description": "The host of the ingress reference.",
+                      "type": "string"
+                    },
+                    "path": {
+                      "description": "The path of the ingress reference.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "secretKeyRef": {
+                  "description": "The secret key reference.",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "serviceRef": {
+                  "description": "The service reference.",
+                  "properties": {
+                    "path": {
+                      "description": "The path of the service reference.",
+                      "type": "string"
+                    },
+                    "port": {
+                      "description": "The port of the service reference.",
+                      "format": "int32",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "selector": {
+        "description": "The selector is used to match resources that belong to the Application. All of the applications resources should have labels such that they match this selector. Users should use the app.kubernetes.io/name label on all components of the Application and set the selector to match this label. For instance, {\"matchLabels\": [{\"app.kubernetes.io/name\": \"my-cool-app\"}]} should be used as the selector for an Application named \"my-cool-app\", and each component should contain a label that matches.",
+        "type": "object"
+      }
+    },
+    "type": "object"
+  }
+}

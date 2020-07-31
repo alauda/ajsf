@@ -25,7 +25,9 @@
             "styles": [
               "demo/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@alauda/common-snippet/assets/icons/basic-icons.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -163,5 +165,8 @@
     "@schematics/angular:component": {
       "styleext": "scss"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

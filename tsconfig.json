@@ -29,10 +29,10 @@
         "node_modules/@types/lodash-es/*"
       ],
       "@ajsf/core": [
-        "dist/@ajsf/core"
+        "projects/ajsf-core/src/public_api"
       ],
       "@ajsf/core/*": [
-        "dist/@ajsf/core/*"
+        "projects/ajsf-core/src/public_api/*"
       ],
       "@ajsf/bootstrap3": [
         "dist/@ajsf/bootstrap3"
@@ -44,13 +44,13 @@
         "dist/@ajsf/bootstrap4"
       ],
       "@ajsf/bootstrap4/*": [
-        "dist/@ajsf/bootstrap4/*"
+        "projects/ajsf-bootstrap4/src/public_api/*"
       ],
       "@ajsf/material": [
-        "dist/@ajsf/material"
+        "projects/ajsf-material/src/public_api"
       ],
       "@ajsf/material/*": [
-        "dist/@ajsf/material/*"
+        "projects/ajsf-material/src/public_api/*"
       ]
     }
   },

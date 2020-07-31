@@ -1,0 +1,15 @@
+<div class="button-row" [class]="options?.htmlClass || ''">
+  <button
+    aui-button
+    [attr.readonly]="options?.readonly ? 'readonly' : null"
+    [disabled]="controlDisabled || options?.readonly"
+    [id]="'control' + layoutNode?._id"
+    [name]="controlName"
+    [type]="layoutNode?.type"
+    [value]="controlValue"
+    (click)="updateValue($event)"
+  >
+    <aui-icon *ngIf="options?.icon" [icon]="options?.icon"></aui-icon>
+    <span *ngIf="options?.title" [innerHTML]="options?.title"></span>
+  </button>
+</div>

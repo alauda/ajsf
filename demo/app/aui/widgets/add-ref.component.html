@@ -1,0 +1,9 @@
+<section [class]="options?.htmlClass || ''" align="start">
+  <button aui-button="text" *ngIf="showAddButton"
+    size="small"
+    [disabled]="options?.readonly"
+    (click)="addItem($event)">
+    <aui-icon icon="basic:add_circle"></aui-icon>
+    <span *ngIf="options?.title" [innerHTML]="buttonText"></span>
+  </button>
+</section>

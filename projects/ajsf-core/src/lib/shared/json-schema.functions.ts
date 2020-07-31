@@ -317,7 +317,7 @@ export function getInputType(schema, layoutNode: any = null) {
   }
   if (hasOwn(schema, '$ref')) { return '$ref'; }
   if (isArray(schema.oneOf) || isArray(schema.anyOf)) { return 'one-of'; }
-  console.error(`getInputType error: Unable to determine input type for ${schemaType}`);
+  console.error(`getInputType error: Unable to determine input type for ${schemaType}; `);
   console.error('schema', schema);
   if (layoutNode) { console.error('layoutNode', layoutNode); }
   return 'none';

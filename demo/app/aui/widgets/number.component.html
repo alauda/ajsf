@@ -1,0 +1,15 @@
+<aui-form-item labelPosition="right">
+  <label auiFormItemLabel>
+    {{ options?.title || 'Value' }}
+  </label>
+  <aui-number-input
+    size="medium"
+    [formControl]="formControl"
+  ></aui-number-input>
+  <div *ngIf="options?.description" auiFormItemHint>
+    {{ options?.description }}
+  </div>
+  <div auiFormItemError *ngIf="options?.showErrors && options?.errorMessage">
+    {{ options?.errorMessage }}
+  </div>
+</aui-form-item>

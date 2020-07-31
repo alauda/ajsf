@@ -430,7 +430,7 @@ export function formatFormData(
 
           // If returnEmptyFields === false,
           // only add empty arrays and objects to required keys
-        } else if (schemaType === 'object' && !returnEmptyFields) {
+        } else if ((schemaType as any) === 'object' && !returnEmptyFields) {
           (dataMap.get(genericPointer).get('required') || []).forEach(key => {
             const keySchemaType =
               dataMap.get(`${genericPointer}/${key}`).get('schemaType');

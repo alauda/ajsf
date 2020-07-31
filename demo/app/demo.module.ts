@@ -5,35 +5,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { AceEditorDirective } from './ace-editor.directive';
 import { DemoComponent } from './demo.component';
 import { DemoRootComponent } from './demo-root.component';
 import { routes } from './demo.routes';
-import { JsonSchemaFormModule } from '@ajsf/core';
-import { Bootstrap4FrameworkModule } from '@ajsf/bootstrap4';
-import { Bootstrap3FrameworkModule } from '@ajsf/bootstrap3';
-import { MaterialDesignFrameworkModule } from '@ajsf/material';
+import { JsonSchemaFormModule } from '../../projects/ajsf-core/src/public_api';
+import { AuiFrameworkModule } from './aui/aui-framework.module';
+import { SharedModule } from './shared.module';
 
 @NgModule({
-  declarations: [AceEditorDirective, DemoComponent, DemoRootComponent],
+  declarations: [DemoComponent, DemoRootComponent],
   imports: [
-    BrowserModule, BrowserAnimationsModule, FlexLayoutModule, FormsModule,
-    HttpClientModule, MatButtonModule, MatCardModule, MatCheckboxModule,
-    MatIconModule, MatMenuModule, MatSelectModule, MatToolbarModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
-    Bootstrap4FrameworkModule,
-    Bootstrap3FrameworkModule,
-    MaterialDesignFrameworkModule,
-    JsonSchemaFormModule
+    AuiFrameworkModule,
+    JsonSchemaFormModule,
+    SharedModule,
   ],
-  bootstrap: [DemoRootComponent]
+  bootstrap: [DemoRootComponent],
 })
-
-export class DemoModule { }
+export class DemoModule {}
