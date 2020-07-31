@@ -1,0 +1,21 @@
+<div>
+  Live data — from onChanges():
+  <pre
+    [class.data-good]="
+!formValidationErrors && liveFormData !== '{}'
+"
+    [class.data-bad]="formValidationErrors"
+  >
+{{ liveFormData | pure: getPrettyData}}</pre
+  >
+</div>
+
+<br />
+<json-schema-form
+  [JSONSchema]="schema"
+  [options]="jsonFormOptions"
+  [framework]="selectedFramework"
+  (onChanges)="onChanges($event)"
+  (onSubmit)="onSubmit($event)"
+>
+</json-schema-form>

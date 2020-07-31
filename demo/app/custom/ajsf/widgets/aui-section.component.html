@@ -1,0 +1,42 @@
+<div
+  class="section-container"
+  [class.section-level-1]="!!isRootSection"
+  [class]="options?.htmlClass || ''"
+  [class.expandable]="options?.expandable && !expanded"
+  [class.expanded]="options?.expandable && expanded"
+>
+  <div *ngIf="sectionTitle" class="title">
+    <div class="legend" (click)="toggleExpanded()">
+      <aui-icon *ngIf="!expanded" icon="angle_right"></aui-icon>
+      <aui-icon *ngIf="expanded" icon="angle_down"></aui-icon>
+      <span>{{ sectionTitle }}</span>
+    </div>
+    <div *ngIf="layoutNode.options.description" class="description">
+      {{ layoutNode.options.description }}
+    </div>
+  </div>
+
+  <!-- <span style="position: absolute;font-size:12px;">{{layoutNode.type}}</span> -->
+
+  <div
+    class="section-content"
+    [class.no-title]="!sectionTitle"
+    *ngIf="!sectionTitle || expanded"
+  >
+    <root-widget
+      [dataIndex]="dataIndex"
+      [layout]="layoutNode.items"
+      [layoutIndex]="layoutIndex"
+      [isFlexItem]="getFlexAttribute('is-flex')"
+      [isOrderable]="options?.orderable"
+      [class.form-flex-column]="getFlexAttribute('flex-direction') === 'column'"
+      [class.form-flex-row]="getFlexAttribute('flex-direction') === 'row'"
+      [style.align-content]="getFlexAttribute('align-content')"
+      [style.align-items]="getFlexAttribute('align-items')"
+      [style.display]="getFlexAttribute('display')"
+      [style.flex-direction]="getFlexAttribute('flex-direction')"
+      [style.flex-wrap]="getFlexAttribute('flex-wrap')"
+      [style.justify-content]="getFlexAttribute('justify-content')"
+    ></root-widget>
+  </div>
+</div>

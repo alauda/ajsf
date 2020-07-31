@@ -16,10 +16,11 @@ import { AceEditorDirective } from './ace-editor.directive';
 import { DemoComponent } from './demo.component';
 import { DemoRootComponent } from './demo-root.component';
 import { routes } from './demo.routes';
-import { JsonSchemaFormModule } from '@ajsf/core';
-import { Bootstrap4FrameworkModule } from '@ajsf/bootstrap4';
-import { Bootstrap3FrameworkModule } from '@ajsf/bootstrap3';
-import { MaterialDesignFrameworkModule } from '@ajsf/material';
+import { JsonSchemaFormModule } from '../../projects/ajsf-core/src/public_api';
+import { Bootstrap4FrameworkModule } from '../../projects/ajsf-bootstrap4/src/public_api';
+// import { Bootstrap3FrameworkModule } from '@ajsf/bootstrap3';
+import { MaterialDesignFrameworkModule } from '../../projects/ajsf-material/src/public_api';
+import { AuiFrameworkModule } from './custom/ajsf/aui-framework.module';
 
 @NgModule({
   declarations: [AceEditorDirective, DemoComponent, DemoRootComponent],
@@ -29,7 +30,8 @@ import { MaterialDesignFrameworkModule } from '@ajsf/material';
     MatIconModule, MatMenuModule, MatSelectModule, MatToolbarModule,
     RouterModule.forRoot(routes),
     Bootstrap4FrameworkModule,
-    Bootstrap3FrameworkModule,
+    // Bootstrap3FrameworkModule,
+    AuiFrameworkModule,
     MaterialDesignFrameworkModule,
     JsonSchemaFormModule
   ],

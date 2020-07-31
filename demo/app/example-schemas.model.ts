@@ -20,6 +20,7 @@ export const Examples: any = {
   'ng-jsf': {
     name: 'Angular JSON Schema Form examples',
     schemas: [
+      { name: 'Custom layout',                  file: 'ng-jsf-custom-layout', },
       { name: 'Flexbox layout',                  file: 'ng-jsf-flex-layout', },
       // { name: 'Simple Array',                    file: 'ng-jsf-simple-array', },
       { name: 'Nested Arrays',                   file: 'ng-jsf-nested-arrays', },

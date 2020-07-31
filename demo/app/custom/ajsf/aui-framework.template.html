@@ -1,0 +1,31 @@
+<div
+  [class.array-item]="isArrayItem"
+  [class.text-array-item]="isTextArrayItem"
+  [orderable]="isOrderable"
+  [dataIndex]="dataIndex"
+  [layoutIndex]="layoutIndex"
+  [layoutNode]="widgetLayoutNode"
+>
+  <div class="remove-action" *ngIf="showRemoveButton">
+    <button
+      aui-button="text"
+      size="small"
+      (click)="removeItem()"
+    >
+      <aui-icon icon="basic:minus_circle"></aui-icon>
+      <span>Remove</span>
+    </button>
+  </div>
+
+  <div class="select-widget-widget">
+    <select-widget-widget
+      [dataIndex]="dataIndex"
+      [layoutIndex]="layoutIndex"
+      [layoutNode]="widgetLayoutNode"
+    ></select-widget-widget>
+  </div>
+</div>
+<div
+  class="spacer"
+  *ngIf="widgetLayoutNode?.arrayItem && widgetLayoutNode?.type !== '$ref'"
+></div>

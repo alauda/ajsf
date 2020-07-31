@@ -1,0 +1,25 @@
+<aui-form-item labelPosition="right" [emptyAddon]="false">
+  <label auiFormItemLabel>
+    {{ options?.title }}
+  </label>
+  <aui-select
+    *ngIf="boundControl"
+    [formControl]="formControl"
+    [required]="options?.required"
+    [attr.name]="controlName"
+    [id]="'control' + layoutNode?._id"
+  >
+    <aui-option *ngFor="let item of selectList" [value]="item?.value">
+      <span [innerHTML]="item?.name"></span>
+    </aui-option>
+    <aui-option-placeholder *ngIf="options?.placeholder || options?.title">
+      {{ options?.placeholder || options?.title }}
+    </aui-option-placeholder>
+  </aui-select>
+  <div *ngIf="options?.description" auiFormItemHint>
+    {{ options?.description }}
+  </div>
+  <div auiFormItemError *ngIf="options?.showErrors && options?.errorMessage">
+    {{ options?.errorMessage }}
+  </div>
+</aui-form-item>

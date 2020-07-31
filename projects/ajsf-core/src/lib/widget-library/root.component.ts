@@ -57,7 +57,8 @@ export class RootComponent {
 
   constructor(
     private jsf: JsonSchemaFormService
-  ) { }
+  ) {
+   }
 
   isDraggable(node: any): boolean {
     return node.arrayItem && node.type !== '$ref' &&

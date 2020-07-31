@@ -5,7 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { Examples } from './example-schemas.model';
-import { JsonPointer } from '@ajsf/core';
+// import { JsonPointer } from '@ajsf/core';
+import { JsonPointer } from '../../projects/ajsf-core/src/public_api';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -43,7 +44,7 @@ export class DemoComponent implements OnInit {
   };
   selectedSet = 'ng-jsf';
   selectedSetName = '';
-  selectedExample = 'ng-jsf-flex-layout';
+  selectedExample = 'ng-jsf-custom-layout';
   selectedExampleName = 'Flexbox layout';
   selectedFramework = 'material-design';
   selectedLanguage = 'en';

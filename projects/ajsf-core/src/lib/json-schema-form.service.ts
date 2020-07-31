@@ -271,6 +271,7 @@ export class JsonSchemaFormService {
       formValues,
       setValues
     );
+    // console.log('formGroupTemplate: ', this.formGroupTemplate);
   }
 
   buildFormGroup() {
@@ -287,6 +288,7 @@ export class JsonSchemaFormService {
         formValue => this.validateData(formValue)
       );
     }
+    // console.log('formGroup: ', this.formGroup);
   }
 
   buildLayout(widgetLibrary: any) {

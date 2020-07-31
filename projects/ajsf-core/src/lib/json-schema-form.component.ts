@@ -422,6 +422,7 @@ export class JsonSchemaFormComponent implements ControlValueAccessor, OnChanges,
   private initializeSchema() {
 
     // TODO: update to allow non-object schemas
+    // console.log('schema: ', this.schema);
 
     if (isObject(this.schema)) {
       this.jsf.AngularSchemaFormCompatibility = true;
@@ -542,6 +543,8 @@ export class JsonSchemaFormComponent implements ControlValueAccessor, OnChanges,
     } else {
       this.formValuesInput = null;
     }
+
+    // console.log('formValuesInput', this.formValuesInput, 'formValues', this.formValues);
   }
 
   /**
@@ -595,7 +598,7 @@ export class JsonSchemaFormComponent implements ControlValueAccessor, OnChanges,
     } else {
       this.jsf.layout = ['*'];
     }
-
+    // debugger
     // Check for alternate layout inputs
     let alternateLayout: any = null;
     if (isObject(this.UISchema)) {
@@ -674,7 +677,6 @@ export class JsonSchemaFormComponent implements ControlValueAccessor, OnChanges,
     }
 
     if (!isEmpty(this.jsf.schema)) {
-
       // If not already initialized, initialize ajv and compile schema
       this.jsf.compileAjvSchema();
 
