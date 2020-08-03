@@ -114,7 +114,7 @@ export function buildSchemaFromData(
     if ((new Set(data.map(getFieldType))).size === 1) {
       newSchema.items = newSchema.items.reduce((a, b) => ({ ...a, ...b }), {});
     }
-    if (requireAllFields) { newSchema.minItems = 1; }
+    // if (requireAllFields) { newSchema.minItems = 1; }
   }
   return newSchema;
 }
@@ -317,8 +317,8 @@ export function getInputType(schema, layoutNode: any = null) {
   }
   if (hasOwn(schema, '$ref')) { return '$ref'; }
   if (isArray(schema.oneOf) || isArray(schema.anyOf)) { return 'one-of'; }
-  console.error(`getInputType error: Unable to determine input type for ${schemaType}; `);
-  console.error('schema', schema);
+  // console.error(`getInputType error: Unable to determine input type for ${schemaType}; `);
+  // console.error('schema', schema);
   if (layoutNode) { console.error('layoutNode', layoutNode); }
   return 'none';
 }

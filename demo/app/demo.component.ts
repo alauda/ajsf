@@ -92,7 +92,7 @@ export class DemoComponent implements OnInit {
   resource = {};
 
   ngOnInit() {
-    const exampleURL = `assets/examples/schema-1.json`;
+    const exampleURL = `assets/examples/schema-2.json`;
     this.http
       .get(exampleURL, { responseType: 'json' })
       .subscribe((data: any) => {
