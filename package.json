@@ -11,7 +11,7 @@
     "prestart": "npm run build:libs",
     "start": "ng serve",
     "start:prod": "ng serve --prod",
-    "build:core": "ng build @ajsf/core",
+    "build": "ng build @alauda/ajsf-core",
     "postbuild:core": "cp README.md LICENSE  dist/@ajsf/core/",
     "build:demo": "yarn build:libs && ng build demo --prod --base-href ./",
     "build:demo-only": "ng build demo --prod --base-href ./",
