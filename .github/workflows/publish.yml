@@ -17,6 +17,6 @@ jobs:
       - name: Publish
         run: |
           npm set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
-          npm publish dist/@ajsf/core
+          npm publish dist/@ajsf/core --access public
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}

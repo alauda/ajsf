@@ -124,7 +124,7 @@
         }
       }
     },
-    "@alauda/ajsf-core": {
+    "@ajsf/core": {
       "root": "projects/ajsf-core",
       "sourceRoot": "projects/ajsf-core/src",
       "projectType": "library",
