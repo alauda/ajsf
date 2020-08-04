@@ -158,6 +158,32 @@
           }
         }
       }
+    },
+    "@ajsf/aui": {
+      "root": "projects/ajsf-aui",
+      "sourceRoot": "projects/ajsf-aui/src",
+      "projectType": "library",
+      "prefix": "",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ajsf-aui/tsconfig.lib.json",
+            "project": "projects/ajsf-aui/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ajsf-aui/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "demo",

@@ -1,0 +1,48 @@
+.section-container {
+  position: relative;
+  .title {
+    padding: 8px;
+
+    .legend {
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      height: 22px;
+      line-height: 22px;
+      color: #333;
+      cursor: pointer;
+      aui-icon {
+        margin-right: 6px;
+      }
+    }
+    .description {
+      display: none;
+      margin-top: 4px;
+      padding-left: 22px;
+      font-size: 12px;
+      line-height: 16px;
+      color: #999;
+    }
+  }
+
+  &.expanded > .title .description {
+    display: block;
+  }
+  &.section-level-1 {
+    margin-bottom: 16px;
+    &.expanded {
+      border: 1px solid #ededed;
+      > .title {
+        border-bottom: 1px solid #ededed;
+        background-color: #fafafa;
+      }
+    }
+  }
+}
+
+.section-content {
+  padding: 8px 12px;
+  &.no-title {
+    padding-top: 0;
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@ajsf/aui",
+  "version": "0.0.1",
+  "license": "MIT",
+  "peerDependencies": {
+    "@alauda/ui": "^5.2.0",
+    "lodash-es": "^4.0.0"
+  },
+  "sideEffects": false
+}

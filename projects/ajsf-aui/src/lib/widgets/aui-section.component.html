@@ -1,0 +1,31 @@
+<div
+  class="section-container"
+  [class.section-level-1]="!!isRootSection"
+  [class]="options?.htmlClass || ''"
+  [class.expandable]="options?.expandable && !expanded"
+  [class.expanded]="options?.expandable && expanded"
+>
+  <div *ngIf="sectionTitle" class="title">
+    <div class="legend" (click)="toggleExpanded()">
+      <aui-icon *ngIf="!expanded" icon="angle_right"></aui-icon>
+      <aui-icon *ngIf="expanded" icon="angle_down"></aui-icon>
+      <span>{{ sectionTitle }}</span>
+    </div>
+    <div *ngIf="layoutNode.options.description" class="description">
+      {{ layoutNode.options.description }}
+    </div>
+  </div>
+
+  <div
+    class="section-content"
+    [class.no-title]="!sectionTitle"
+    [hidden]="sectionTitle && !expanded"
+  >
+    <root-widget
+      [dataIndex]="dataIndex"
+      [layout]="layoutNode.items"
+      [layoutIndex]="layoutIndex"
+      [isOrderable]="options?.orderable"
+    ></root-widget>
+  </div>
+</div>

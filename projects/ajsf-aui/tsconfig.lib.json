@@ -1,0 +1,21 @@
+{
+  "extends": "@1stg/tsconfig/angular",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es2015",
+    "module": "es2015",
+    "declaration": true,
+    "inlineSources": true
+  },
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "disableTypeScriptVersionCheck": true,
+    "enableIvy": false,
+    "enableResourceInlining": true,
+    "fullTemplateTypeCheck": true,
+    "skipTemplateCodegen": true,
+    "strictInjectionParameters": true,
+    "strictMetadataEmit": true
+  },
+  "exclude": ["node_modules"]
+}
