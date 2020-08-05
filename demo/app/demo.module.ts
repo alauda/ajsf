@@ -9,8 +9,8 @@ import { DemoComponent } from './demo.component';
 import { DemoRootComponent } from './demo-root.component';
 import { routes } from './demo.routes';
 import { SharedModule } from './shared.module';
-import { AuiFrameworkModule } from 'projects/ajsf-aui/src/public-api';
-import { JsonSchemaFormModule } from 'projects/ajsf-core/src/public_api';
+import { JsonSchemaFormModule } from '@alauda/ajsf-core';
+import { AuiFrameworkModule } from '@alauda/ajsf-aui';
 
 @NgModule({
   declarations: [DemoComponent, DemoRootComponent],

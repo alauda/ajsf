@@ -15,7 +15,10 @@
     "fullTemplateTypeCheck": true,
     "skipTemplateCodegen": true,
     "strictInjectionParameters": true,
-    "strictMetadataEmit": true
+    "strictMetadataEmit": true,
+    "paths": {
+      "@alauda/ajsf-core": ["../../dist/@ajsf/core"]
+    }
   },
   "exclude": ["node_modules"]
 }

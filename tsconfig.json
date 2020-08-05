@@ -18,8 +18,8 @@
     "paths": {
       "@angular/*": ["./node_modules/@angular/*"],
       "lodash/*": ["node_modules/@types/lodash-es/*"],
-      "@alauda/ajsf-core": ["dist/@ajsf/core"],
-      "@alauda/ajsf-core/*": ["dist/@ajsf/core/*"]
+      "@alauda/ajsf-core": ["projects/ajsf-core/src/public_api.ts"],
+      "@alauda/ajsf-aui": ["projects/ajsf-aui/src/public-api.ts"]
     }
   },
   "angularCompilerOptions": {

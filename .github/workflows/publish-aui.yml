@@ -12,7 +12,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build package
-        run: yarn build:aui
+        run: |
+          yarn build:core
+          yarn build:aui
       - name: Publish
         run: |
           npm set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
