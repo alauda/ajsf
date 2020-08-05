@@ -1,5 +1,5 @@
 {
-  "name": "@ajsf/aui",
+  "name": "@alauda/ajsf-aui",
   "version": "0.0.1",
   "license": "MIT",
   "peerDependencies": {
