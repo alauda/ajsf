@@ -1,5 +1,3 @@
-import { StringMap } from '@alauda/common-snippet';
-
 export interface NodeOptions {
   addable?: boolean;
   disabled?: boolean;
@@ -34,7 +32,7 @@ export interface NodeOptions {
   maxLength?: number;
   minLength?: number;
   pattern?: string;
-  errorMessage?: StringMap;
+  errorMessage?: any;
 }
 
 export interface LayoutNode {

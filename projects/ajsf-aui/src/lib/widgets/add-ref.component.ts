@@ -1,4 +1,4 @@
-import { JsonSchemaFormService } from '@ajsf/core';
+import { JsonSchemaFormService } from '@alauda/ajsf-core';
 import {
   ChangeDetectionStrategy,
   Component,

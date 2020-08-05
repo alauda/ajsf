@@ -1,5 +1,5 @@
 {
-  "extends": "@1stg/tsconfig/angular",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es2015",

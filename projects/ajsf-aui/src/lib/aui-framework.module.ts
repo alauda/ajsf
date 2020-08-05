@@ -5,7 +5,7 @@ import {
   JsonSchemaFormService,
   WidgetLibraryModule,
   WidgetLibraryService,
-} from '@ajsf/core';
+} from '@alauda/ajsf-core';
 import {
   ButtonModule,
   CheckboxModule,

@@ -8,9 +8,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DemoComponent } from './demo.component';
 import { DemoRootComponent } from './demo-root.component';
 import { routes } from './demo.routes';
-import { JsonSchemaFormModule } from '../../projects/ajsf-core/src/public_api';
-import { AuiFrameworkModule } from './aui/aui-framework.module';
 import { SharedModule } from './shared.module';
+import { AuiFrameworkModule } from 'projects/ajsf-aui/src/public-api';
+import { JsonSchemaFormModule } from 'projects/ajsf-core/src/public_api';
 
 @NgModule({
   declarations: [DemoComponent, DemoRootComponent],

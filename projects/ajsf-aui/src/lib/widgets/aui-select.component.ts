@@ -1,4 +1,4 @@
-import { JsonSchemaFormService, buildTitleMap, isArray } from '@ajsf/core';
+import { JsonSchemaFormService, buildTitleMap, isArray } from '@alauda/ajsf-core';
 import {
   ChangeDetectionStrategy,
   Component,

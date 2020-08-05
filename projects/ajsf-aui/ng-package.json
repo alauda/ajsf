@@ -8,7 +8,11 @@
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
       "lodash-es": "_",
-      "@alauda/ui": "alauda.ui"
+      "@alauda/ui": "alauda.ui",
+      "@alauda/ajsf-core": "@alauda/ajsf-core"
     }
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "@alauda/ajsf-core"
+  ]
 }

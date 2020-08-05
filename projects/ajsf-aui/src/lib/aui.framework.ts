@@ -1,4 +1,4 @@
-import { Framework } from '@ajsf/core';
+import { Framework } from '@alauda/ajsf-core';
 import { Injectable } from '@angular/core';
 
 import { AuiFrameworkComponent } from './aui-framework.component';
