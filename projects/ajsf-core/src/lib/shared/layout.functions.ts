@@ -605,9 +605,9 @@ export function buildLayoutFromSchema(
     newNode.options.minItems = Math.max(
       schema.minItems || 0, newNode.options.minItems || 0
     );
-    if (!newNode.options.minItems && isInputRequired(jsf.schema, schemaPointer)) {
-      newNode.options.minItems = 1;
-    }
+    // if (!newNode.options.minItems && isInputRequired(jsf.schema, schemaPointer)) {
+    //   newNode.options.minItems = 1;
+    // }
     if (!hasOwn(newNode.options, 'listItems')) { newNode.options.listItems = 1; }
     newNode.options.tupleItems = isArray(schema.items) ? schema.items.length : 0;
     if (newNode.options.maxItems <= newNode.options.tupleItems) {
