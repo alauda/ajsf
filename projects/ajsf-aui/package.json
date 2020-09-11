@@ -1,13 +1,13 @@
 {
   "name": "@alauda/ajsf-aui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "peerDependencies": {
     "@alauda/ui": "^5.2.0",
     "lodash-es": "^4.0.0"
   },
   "dependencies": {
-    "@alauda/ajsf-core": "^0.0.1"
+    "@alauda/ajsf-core": "^0.0.3"
   },
   "sideEffects": false
 }
