@@ -8,6 +8,7 @@
     [required]="options?.required"
     [attr.name]="controlName"
     [id]="'control' + layoutNode?._id"
+    [clearable]="true"
   >
     <aui-option *ngFor="let item of selectList" [value]="item?.value">
       <span [innerHTML]="item?.name"></span>

@@ -1061,8 +1061,9 @@ export function buildTitleMap(
       }, []);
     }
   }
-  if (!fieldRequired && !hasEmptyValue) {
-    newTitleMap.unshift({ name: '<em>None</em>', value: null });
-  }
+  // use aui-select 'clearable' instead
+  // if (!fieldRequired && !hasEmptyValue) {
+  //   newTitleMap.unshift({ name: '<em>None</em>', value: null });
+  // }
   return newTitleMap;
 }
