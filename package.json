@@ -7,7 +7,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "ng serve",
+    "start": "ng serve --port 4201",
     "start:prod": "ng serve --prod",
     "build:core": "ng build @ajsf/core",
     "build:aui": "ng build @ajsf/aui",

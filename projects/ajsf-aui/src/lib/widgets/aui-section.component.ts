@@ -60,8 +60,7 @@ export class AuiSectionComponent implements OnInit {
     sortNodes(this.layoutNode.items);
     this.jsf.initializeControl(this);
     this.options = this.layoutNode.options || {};
-    // too many fields
-    // this.expanded = this.isRootSection;
+    this.expanded = !!this.options?.required;
     switch (this.layoutNode.type) {
       case 'fieldset':
       case 'array':

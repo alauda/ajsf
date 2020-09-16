@@ -2,56 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JsonPointer } from 'projects/ajsf-core/src/lib/shared';
 import { HttpClient } from '@angular/common/http';
 import * as json from 'json-keys-sort';
-import { isObject, isEmpty, isArray } from 'lodash-es';
-
-function normalizeFormData(data: any) {
-  Object.keys(data).forEach((key) => {
-    if (isArray(data[key])) {
-      data[key].forEach((item) => {
-        if (isObject(item)) {
-          normalizeFormData(item);
-        }
-      });
-      data[key] = data[key].filter((item) => !isEmpty(item));
-      if (!data[key].length) {
-        delete data[key];
-      }
-    } else if (isObject(data[key])) {
-      normalizeFormData(data[key]);
-      if (isEmpty(data[key])) {
-        delete data[key];
-      }
-    }
-  });
-  return data;
-}
-
-function normalizeSchema(schema: any) {
-  if (!schema.properties) {
-    return null;
-  }
-  const properties = schema.properties;
-  Object.keys(properties).forEach((key) => {
-    const _schema = properties[key];
-    if (_schema.type === 'object' && !_schema.properties) {
-      delete properties[key];
-    } else if (_schema.type === 'object' && _schema.properties) {
-      normalizeSchema(_schema);
-      if (!_schema.properties || Object.keys(_schema.properties).length === 0) {
-        delete properties[key];
-      }
-    } else if (_schema.type === 'array' && _schema.items.type === 'object') {
-      normalizeSchema(_schema.items);
-      if (
-        !_schema.items?.properties ||
-        Object.keys(_schema.items.properties).length === 0
-      ) {
-        delete properties[key];
-      }
-    }
-  });
-  return schema;
-}
+import { normalizeFormData, normalizeSchema } from './util';
 
 @Component({
   selector: 'app-demo',
@@ -66,7 +17,7 @@ export class DemoComponent implements OnInit {
   jsonFormOptions: any = {
     addSubmit: false, // Add a submit button if layout does not have one
     debug: false, // Don't show inline debugging information
-    loadExternalAssets: true, // Load external css and JavaScript for frameworks
+    loadExternalAssets: false, // Load external css and JavaScript for frameworks
     returnEmptyFields: false, // Don't return values for empty input fields
     setSchemaDefaults: false, // Always use schema defaults for empty fields
     defautWidgetOptions: {
@@ -92,11 +43,11 @@ export class DemoComponent implements OnInit {
   resource = {};
 
   ngOnInit() {
-    const exampleURL = `assets/examples/schema-2.json`;
+    const exampleURL = `assets/examples/schema-3.json`;
     this.http
       .get(exampleURL, { responseType: 'json' })
       .subscribe((data: any) => {
-        const spec = { ...data.spec };
+        const spec = normalizeSchema({ ...data.spec });
         console.log(JSON.stringify(spec));
         json.sort(spec.properties);
         this.schema = spec.properties;
@@ -130,6 +81,7 @@ export class DemoComponent implements OnInit {
 
   onChanges(data: unknown) {
     this.liveFormData = normalizeFormData(data);
+    // this.liveFormData = data;
   }
 
   getPrettyData(data: unknown) {
