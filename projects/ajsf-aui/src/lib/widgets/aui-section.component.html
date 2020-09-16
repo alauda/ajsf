@@ -1,7 +1,6 @@
 <div
-  class="section-container"
-  [class.section-level-1]="!!isRootSection"
   [class]="options?.htmlClass || ''"
+  [class.section-level-1]="!!isRootSection"
   [class.expandable]="options?.expandable && !expanded"
   [class.expanded]="options?.expandable && expanded"
 >

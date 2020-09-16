@@ -1,4 +1,4 @@
-.section-container {
+:host > div {
   position: relative;
   .title {
     padding: 8px;
@@ -16,7 +16,7 @@
       }
     }
     .description {
-      display: none;
+      display: block;
       margin-top: 4px;
       padding-left: 22px;
       font-size: 12px;
@@ -38,11 +38,10 @@
       }
     }
   }
-}
-
-.section-content {
-  padding: 8px 12px;
-  &.no-title {
-    padding-top: 0;
+  .section-content {
+    padding: 8px 12px;
+    &.no-title {
+      padding-top: 0;
+    }
   }
 }
