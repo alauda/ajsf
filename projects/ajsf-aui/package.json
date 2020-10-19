@@ -1,6 +1,6 @@
 {
   "name": "@alauda/ajsf-aui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "peerDependencies": {
     "@alauda/ui": "^5.2.0",

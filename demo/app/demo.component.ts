@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { JsonPointer } from 'projects/ajsf-core/src/lib/shared';
-import { HttpClient } from '@angular/common/http';
-import * as json from 'json-keys-sort';
-import { normalizeFormData, normalizeSchema } from './util';
+import { Component, OnInit } from "@angular/core";
+import { JsonPointer } from "projects/ajsf-core/src/lib/shared";
+import { HttpClient } from "@angular/common/http";
+import * as json from "json-keys-sort";
+import { normalizeFormData, normalizeSchema } from "./util";
 
 @Component({
-  selector: 'app-demo',
-  templateUrl: 'demo.component.html',
-  styleUrls: ['demo.component.scss'],
+  selector: "app-demo",
+  templateUrl: "demo.component.html",
+  styleUrls: ["demo.component.scss"],
 })
 export class DemoComponent implements OnInit {
   jsonFormSchema: string;
   jsonFormValid = false;
-  jsonFormStatusMessage = 'Loading form...';
+  jsonFormStatusMessage = "Loading form...";
   jsonFormObject: unknown;
   jsonFormOptions: any = {
     addSubmit: false, // Add a submit button if layout does not have one
@@ -34,21 +34,23 @@ export class DemoComponent implements OnInit {
   formIsValid = null;
   submittedFormData: any = null;
 
-  selectedFramework = 'aui';
+  selectedFramework = "aui";
 
   schema: any;
 
   constructor(private http: HttpClient) {}
 
-  resource = {};
+  resource = {
+    serviceType: "ClusterIP",
+    replicas: 1,
+  };
 
   ngOnInit() {
-    const exampleURL = `assets/examples/schema-3.json`;
+    const exampleURL = `assets/examples/schema-1.json`;
     this.http
-      .get(exampleURL, { responseType: 'json' })
+      .get(exampleURL, { responseType: "json" })
       .subscribe((data: any) => {
         const spec = normalizeSchema({ ...data.spec });
-        console.log(JSON.stringify(spec));
         json.sort(spec.properties);
         this.schema = spec.properties;
       });
@@ -76,12 +78,12 @@ export class DemoComponent implements OnInit {
         errorArray.push(message);
       }
     }
-    return errorArray.join('<br>');
+    return errorArray.join("<br>");
   }
 
   onChanges(data: unknown) {
-    this.liveFormData = normalizeFormData(data);
-    // this.liveFormData = data;
+    // this.liveFormData = normalizeFormData(data);
+    this.liveFormData = data;
   }
 
   getPrettyData(data: unknown) {

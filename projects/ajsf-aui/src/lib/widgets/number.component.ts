@@ -13,6 +13,7 @@ import { LayoutNode, NodeOptions } from '../types';
   // tslint:disable-next-line:component-selector
   selector: 'aui-number-widget',
   templateUrl: 'number.component.html',
+  styleUrls: ['number.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuiNumberComponent implements OnInit {

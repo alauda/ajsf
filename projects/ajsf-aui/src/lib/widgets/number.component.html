@@ -2,10 +2,13 @@
   <label auiFormItemLabel>
     {{ options?.title || 'Value' }}
   </label>
-  <aui-number-input
-    size="medium"
+  <input
+    aui-input
+    autocomplete="off"
+    type="number"
     [formControl]="formControl"
-  ></aui-number-input>
+    size="medium"
+  />
   <div *ngIf="options?.description" auiFormItemHint>
     {{ options?.description }}
   </div>
